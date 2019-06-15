@@ -1,0 +1,62 @@
+﻿<Window x:Class="formPrinter.PropertiesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pg="clr-namespace:Xceed.Wpf.Toolkit.PropertyGrid;assembly=WPFToolkit.Extended"
+        xmlns:model="clr-namespace:formPrinter.Model"
+        xmlns:converters="clr-namespace:formPrinter.Converters"
+        xmlns:system ="clr-namespace:System;assembly=mscorlib"
+        xmlns:wpftoolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=WPFToolkit.Extended"
+        Title="Конструктор" Height="650" Width="350"
+        WindowStyle="ToolWindow">
+    <Window.Resources>
+
+        <converters:PropertyDefinitionCollectionConverter x:Key="PropertyDefinitionCollectionConverter"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.75*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TreeView SelectedItemChanged="TreeView_SelectedItemChanged" Name="trv">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Pages}" DataType="{x:Type model:Form}">
+                    <TextBlock Text="{Binding Name}" />
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding Elements}" DataType="model:Page">
+                            <TextBlock Text="{Binding Name}" />
+                            <HierarchicalDataTemplate.ItemTemplate>
+                                <HierarchicalDataTemplate DataType="model:Element">
+                                    <TextBlock Text="{Binding Name}" />
+                                </HierarchicalDataTemplate>
+                            </HierarchicalDataTemplate.ItemTemplate>
+                        </HierarchicalDataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+        <pg:PropertyGrid SelectedObject="{Binding SelectedItem}" Grid.Row="1" 
+                          ShowSearchBox="False" ShowSortOptions="False" ShowTitle="False"
+                         AutoGenerateProperties="False" 
+                         PropertyDefinitions="{Binding SelectedItem, Converter={StaticResource PropertyDefinitionCollectionConverter}}">
+            <pg:PropertyGrid.EditorDefinitions>
+                <pg:EditorDefinition TargetType="{x:Type system:Double}">
+                    <pg:EditorDefinition.EditorTemplate>
+                        <DataTemplate>
+                            <wpftoolkit:DoubleUpDown Value="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="100" Increment="0.25"/>
+                        </DataTemplate>
+                    </pg:EditorDefinition.EditorTemplate>
+                </pg:EditorDefinition>
+                <pg:EditorDefinition TargetType="{x:Type system:String}">
+                    <pg:EditorDefinition.EditorTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTemplate>
+                    </pg:EditorDefinition.EditorTemplate>
+                </pg:EditorDefinition>
+             
+            </pg:PropertyGrid.EditorDefinitions>
+        </pg:PropertyGrid>
+    </Grid>
+
+</Window>
