@@ -12,10 +12,10 @@ namespace formPrinter.Converters
 {
     public class PropertyDefinitionCollectionConverter : IValueConverter
     {
-        
-
+        [Obsolete]
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
+            
             PropertyDefinitionCollection col = new PropertyDefinitionCollection();
 
             col.Add(new PropertyDefinition() { Name = "Name" });
@@ -44,8 +44,8 @@ namespace formPrinter.Converters
                 col.Add(new PropertyDefinition() { Name = "Strikeout" });
                 col.Add(new PropertyDefinition() { Name = "ElementType" });
                 col.Add(new PropertyDefinition() { Name = "ListChoises" });
-                col.Add(new PropertyDefinition() { Name = "Font" });
-                col.Add(new PropertyDefinition() { Name = "Style" });
+                //col.Add(new PropertyDefinition() { Name = "Font" });
+                //col.Add(new PropertyDefinition() { Name = "Style" });
                 //col.Add(new PropertyDefinition() { Name = "GroupName" });
             }
 

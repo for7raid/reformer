@@ -67,6 +67,7 @@ namespace formPrinter
         {
             InitializeComponent();
             grid.DataContext = this;
+           
         }
 
         private void ShowMoveGrid()
@@ -162,9 +163,6 @@ namespace formPrinter
                     Item.X = Math.Max(0, Item.X + CentimeterToPixelConverter.ConvertToCmX(diff.X));
             }
         }
-
-
-
-
+       
     }
 }

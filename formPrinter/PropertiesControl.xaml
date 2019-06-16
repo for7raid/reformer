@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:pg="clr-namespace:Xceed.Wpf.Toolkit.PropertyGrid;assembly=WPFToolkit.Extended"
+             xmlns:pg="http://schemas.xceed.com/wpf/xaml/toolkit"
                 xmlns:model="clr-namespace:formPrinter.Model"
                 xmlns:converters="clr-namespace:formPrinter.Converters"
                 xmlns:system ="clr-namespace:System;assembly=mscorlib"
-                xmlns:wpftoolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=WPFToolkit.Extended"
+                xmlns:wpftoolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:drawing="clr-namespace:System.Drawing;assembly=System.Drawing"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
@@ -55,22 +55,30 @@
         </TreeView>
         <pg:PropertyGrid SelectedObject="{Binding SelectedItem}" Grid.Row="1" 
                           ShowSearchBox="False" ShowSortOptions="False" ShowTitle="False"
-                         AutoGenerateProperties="False" 
-                         PropertyDefinitions="{Binding SelectedItem, Converter={StaticResource PropertyDefinitionCollectionConverter}}">
-            
-            <pg:PropertyGrid.EditorDefinitions>
-                <pg:EditorDefinition  TargetType="{x:Type system:Double}">
-                    <pg:EditorDefinition.PropertiesDefinitions>
-                        <pg:PropertyDefinition Name="ImageTop"/>
-                        <pg:PropertyDefinition Name="ImageLeft"/>
-                    </pg:EditorDefinition.PropertiesDefinitions>
-                    <pg:EditorDefinition.EditorTemplate>
-                        <DataTemplate>
-                            <wpftoolkit:DoubleUpDown Value="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="-100" Maximum="100" Increment="0.1" FormatString="N2"/>
-                        </DataTemplate>
-                    </pg:EditorDefinition.EditorTemplate>
-                </pg:EditorDefinition>
+                         AutoGenerateProperties="False">
+            <pg:PropertyGrid.PropertyDefinitions>
+                <pg:PropertyDefinition Name="Name"/>
+                
+                <pg:PropertyDefinition Name="Width"/>
+                <pg:PropertyDefinition Name="Height"/>
+                <pg:PropertyDefinition Name="Image"/>
+                <pg:PropertyDefinition Name="ImageTop"/>
+                <pg:PropertyDefinition Name="ImageLeft"/>
 
+                <pg:PropertyDefinition Name="X"/>
+                <pg:PropertyDefinition Name="Y"/>
+                <pg:PropertyDefinition Name="Value"/>
+                <pg:PropertyDefinition Name="FontSize"/>
+                <pg:PropertyDefinition Name="FontName"/>
+                <pg:PropertyDefinition Name="Bold"/>
+                <pg:PropertyDefinition Name="Italic"/>
+                <pg:PropertyDefinition Name="Underline"/>
+                <pg:PropertyDefinition Name="Strikeout"/>
+                <pg:PropertyDefinition Name="ElementType"/>
+                <pg:PropertyDefinition Name="ListChoises"/>
+
+            </pg:PropertyGrid.PropertyDefinitions>
+            <pg:PropertyGrid.EditorDefinitions>
                 <pg:EditorDefinition>
                     <pg:EditorDefinition.PropertiesDefinitions>
                         <pg:PropertyDefinition Name="FontName"/>
@@ -112,6 +120,14 @@
                 </pg:EditorDefinition>
 
                 <pg:EditorDefinition TargetType="{x:Type system:Double}">
+                    <pg:EditorDefinition.PropertiesDefinitions>
+                        <pg:PropertyDefinition Name="X"/>
+                        <pg:PropertyDefinition Name="Y"/>
+                        <pg:PropertyDefinition Name="Width"/>
+                        <pg:PropertyDefinition Name="Height"/>
+                        <pg:PropertyDefinition Name="ImageTop"/>
+                        <pg:PropertyDefinition Name="ImageLeft"/>
+                    </pg:EditorDefinition.PropertiesDefinitions>
                     <pg:EditorDefinition.EditorTemplate>
                         <DataTemplate>
                             <wpftoolkit:DoubleUpDown Value="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="100" Increment="0.1" FormatString="N2"/>
@@ -137,7 +153,9 @@
                     </pg:EditorDefinition.EditorTemplate>
                 </pg:EditorDefinition>
                 <pg:EditorDefinition TargetType="{x:Type model:ElementType}">
-
+                    <pg:EditorDefinition.PropertiesDefinitions>
+                        <pg:PropertyDefinition Name="ElementType"/>
+                    </pg:EditorDefinition.PropertiesDefinitions>
                     <pg:EditorDefinition.EditorTemplate>
                         <DataTemplate>
                             <ComboBox SelectedValue="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ElementTypeValueConverter}}"

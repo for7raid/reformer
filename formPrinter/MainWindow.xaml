@@ -259,6 +259,7 @@
                             <myInteractivity:SelectItemAtMouseMove
                                             Page="{Binding}"
                                             SelectedItem="{Binding DataContext.SelectedItem, RelativeSource={RelativeSource AncestorType=Window}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                           
                         </Interactivity:Interaction.Behaviors>
                     </ItemsControl>
 
@@ -378,7 +379,7 @@
                 <MenuItem Header="Создать копию" Command="{Binding CopyCommand}" InputGestureText="Ctrl+C"/>
                 <Separator/>
                 <MenuItem Header="Переместить вверх" Command="{Binding ItemUpCommand}"/>
-                <MenuItem Header="Переместить вних" Command="{Binding ItemDownCommand}"/>
+                <MenuItem Header="Переместить вниз" Command="{Binding ItemDownCommand}"/>
             </MenuItem>
             <MenuItem Header="Сервис">
                 <MenuItem Header="Напечатать калибровочный лист"  Command="{Binding PrintCalibratePageCommand}" />

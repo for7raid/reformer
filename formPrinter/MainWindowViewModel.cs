@@ -442,10 +442,10 @@ namespace formPrinter
                 Open(arg);
             }
 
-
+#if DEBUG
             if (CurrentForm == null)
                 LoadTest();
-
+#endif
         }
 
         void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -785,33 +785,33 @@ namespace formPrinter
             //dialog.Document.PrinterSettings = dialog.PrinterSettings;
             dialog.Document.PrintPage += (s, e) =>
             {
-                Font font1 = new Font("Arial", 11, System.Drawing.FontStyle.Regular);
+                //Font font1 = new Font("Arial", 11, System.Drawing.FontStyle.Regular);
 
-                // Construct a new Rectangle .
-                Rectangle displayRectangle =
-                    new Rectangle(40, 40, 180, 180);
+                //// Construct a new Rectangle .
+                //Rectangle displayRectangle =
+                //    new Rectangle(40, 40, 180, 180);
 
-                // Construct 2 new StringFormat objects
-                StringFormat format1 = new StringFormat(StringFormatFlags.NoClip);
-                StringFormat format2 = new StringFormat(format1);
+                //// Construct 2 new StringFormat objects
+                //StringFormat format1 = new StringFormat(StringFormatFlags.NoClip);
+                //StringFormat format2 = new StringFormat(format1);
 
-                // Set the LineAlignment and Alignment properties for
-                // both StringFormat objects to different values.
-                format1.LineAlignment = StringAlignment.Near;
-                format1.Alignment = StringAlignment.Center;
+                //// Set the LineAlignment and Alignment properties for
+                //// both StringFormat objects to different values.
+                //format1.LineAlignment = StringAlignment.Near;
+                //format1.Alignment = StringAlignment.Center;
 
-                format2.LineAlignment = StringAlignment.Center;
-                format2.Alignment = StringAlignment.Far;
+                //format2.LineAlignment = StringAlignment.Center;
+                //format2.Alignment = StringAlignment.Far;
 
-                // Draw the bounding rectangle and a string for each
-                // StringFormat object.
-                e.Graphics.DrawRectangle(Pens.Black, displayRectangle);
-                e.Graphics.DrawString("Showing Format1", font1,
-                    System.Drawing.Brushes.Red, (RectangleF)displayRectangle, format1);
-                e.Graphics.DrawString("Showing Format2", font1,
-                    System.Drawing.Brushes.Red, (RectangleF)displayRectangle, format2);
+                //// Draw the bounding rectangle and a string for each
+                //// StringFormat object.
+                //e.Graphics.DrawRectangle(Pens.Black, displayRectangle);
+                //e.Graphics.DrawString("Showing Format1", font1,
+                //    System.Drawing.Brushes.Red, (RectangleF)displayRectangle, format1);
+                //e.Graphics.DrawString("Showing Format2", font1,
+                //    System.Drawing.Brushes.Red, (RectangleF)displayRectangle, format2);
 
-                return;
+                //return;
                 var x = e.PageSettings.HardMarginX;
                 var y = e.PageSettings.HardMarginY;
 

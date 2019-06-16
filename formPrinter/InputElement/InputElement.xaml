@@ -56,13 +56,13 @@
 
         <Grid Name="moveGrid">
             <Rectangle Name="letfBottom" Fill="Red" Height="8" Width="8" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="-4"
-                       MouseDown="Rectangle_MouseDown" MouseUp="rectangle_MouseUp" MouseMove="letfBottom_MouseMove"/>
+                       MouseDown="Rectangle_MouseDown" MouseUp="rectangle_MouseUp" MouseMove="letfBottom_MouseMove" Cursor="SizeNESW"/>
             <Rectangle Name="rightBottom" Fill="Red" Height="8" Width="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="-4"
-                       MouseDown="Rectangle_MouseDown" MouseUp="rectangle_MouseUp" MouseMove="rightBottom_MouseMove"/>
+                       MouseDown="Rectangle_MouseDown" MouseUp="rectangle_MouseUp" MouseMove="rightBottom_MouseMove"  Cursor="SizeNWSE"/>
             <Rectangle Name="rightTop" Fill="Red" Height="8" Width="8" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="-4"
-                       MouseDown="Rectangle_MouseDown" MouseUp="rectangle_MouseUp" MouseMove="rightTop_MouseMove"/>
+                       MouseDown="Rectangle_MouseDown" MouseUp="rectangle_MouseUp" MouseMove="rightTop_MouseMove" Cursor="SizeNESW"/>
             <Rectangle Name="leftTop" Fill="Red" Height="8" Width="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-4"
-                       MouseDown="Rectangle_MouseDown" MouseUp="rectangle_MouseUp" MouseMove="leftTop_MouseMove"/>
+                       MouseDown="Rectangle_MouseDown" MouseUp="rectangle_MouseUp" MouseMove="leftTop_MouseMove"  Cursor="SizeNWSE"/>
         </Grid>
     </Grid>
 </UserControl>

@@ -102,7 +102,7 @@ namespace formPrinter.Model
 
         [Category("Шрифт")]
         [DisplayName("Размер")]
-        [Description("Размер шрифта, которым прозиводиться заполнение. Влияет на печать.")]
+        [Description("Размер шрифта, которым прозиводится заполнение. Влияет на печать.")]
         [XmlAttribute]
         public int FontSize
         {
@@ -117,7 +117,7 @@ namespace formPrinter.Model
 
         [Category("Шрифт")]
         [DisplayName("Шрифт")]
-        [Description("Шрифта, которым прозиводиться заполнение. Влияет на печать.")]
+        [Description("Шрифт, которым прозиводится заполнение. Влияет на печать.")]
         [XmlAttribute]
         public string FontName
         {
@@ -128,30 +128,6 @@ namespace formPrinter.Model
         // Using a DependencyProperty as the backing store for Font.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty FontProperty =
             DependencyProperty.Register("FontName", typeof(string), typeof(Element), new PropertyMetadata("Arial"));
-
-
-        [XmlIgnore]
-        [Editor(typeof(Xceed.Wpf.Toolkit.PropertyGrid.Editors.FontComboBoxEditor), typeof(Xceed.Wpf.Toolkit.PropertyGrid.Editors.FontComboBoxEditor))]
-        public string Font { get; set; }
-
-        [XmlIgnore]
-        [Editor(typeof(Xceed.Wpf.Toolkit.PropertyGrid.Editors.EnumComboBoxEditor), typeof(Xceed.Wpf.Toolkit.PropertyGrid.Editors.EnumComboBoxEditor))]
-        public FontStyle Style { get; set; }
-        //[Category("Шрифт")]
-        //[DisplayName("Шрифт")]
-        //[Description("Шрифта, которым прозиводиться заполнение. Влияет на печать.")]
-        //[XmlIgnore]
-        //public FontFamily FontName
-        //{
-        //    get { return (FontFamily)GetValue(FontFamilyProperty); }
-        //    set { SetValue(FontFamilyProperty, value); }
-        //}
-
-        //// Using a DependencyProperty as the backing store for FontFamily.  This enables animation, styling, binding, etc...
-        //public static readonly DependencyProperty FontFamilyProperty =
-        //    DependencyProperty.Register("FontName", typeof(FontFamily), typeof(Element), new PropertyMetadata(new FontFamily("Arial")));
-
-
 
         [Category("Шрифт")]
         [DisplayName("Жирный")]
@@ -197,8 +173,8 @@ namespace formPrinter.Model
 
 
         [Category("Шрифт")]
-        [DisplayName("Перечерткнутый")]
-        [Description("Перечерткнутое начертание. Влияет на печать.")]
+        [DisplayName("Перечеркнутый")]
+        [Description("Перечеркнутое начертание. Влияет на печать.")]
         [XmlAttribute]
         public bool Strikeout
         {
